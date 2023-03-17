@@ -1,6 +1,8 @@
 #include<stdio.h>
-/*
- *main - return points with use printf
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (seccess)
  */
 int main(void)
 {
