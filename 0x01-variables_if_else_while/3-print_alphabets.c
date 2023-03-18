@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	char alph1[26] = "abcdefghijklmnoprstuvwxyz";
+	char alph1[26] = "abcdefghijklmnopqrstuvwxyz";
 	char alph2[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int i;
 
