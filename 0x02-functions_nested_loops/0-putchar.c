@@ -8,9 +8,9 @@
 int main(void)
 {
 	int i = 0;
-	char tab[8] = {'_', 'p', 'u', 't', 'c', 'h', 'a', 'r'};
+	char tab[9] = {'_', 'p', 'u', 't', 'c', 'h', 'a', 'r', '\n'};
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 9; i++)
 	{
 		_putchar(tab[i]);
 	}
