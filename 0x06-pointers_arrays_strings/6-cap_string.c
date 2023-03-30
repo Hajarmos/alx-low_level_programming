@@ -12,7 +12,7 @@ char *cap_string(char *s)
 	char sep[] = " \t\n,;.!?\"(){}";
 	int i = 0, j;
 
-	while (*s && s[i] != '\0')
+	while (*(s + 1))
 	{
 		for (j = 0; j < 13; j++)
 			if (s[i] == sep[j] && s[i + 1] >= 'a' && s[i + 1] <= 'z')
