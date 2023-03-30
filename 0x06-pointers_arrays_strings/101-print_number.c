@@ -2,7 +2,7 @@
 
 /**
  * print_number - prints an integer.
- * @n: integer
+ * @n: int
  *
  * Return: nothing
  */
