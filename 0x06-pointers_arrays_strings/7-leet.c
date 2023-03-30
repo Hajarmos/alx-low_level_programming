@@ -9,12 +9,15 @@
 
 char *leet(char *s)
 {
-	char a[] = "aeotl", b[] = "43071";
+	char a[] = "aeotl", b[] = "43071", c[] = "AEOTL";
 	int i = 0, j;
 
 	while (*(s + i))
+	{
 		for (j = 0; j < 5; j++)
-			if (*(s + i) == a[j] || *(s + i) == a[j] - 32)
+			if (*(s + i) == a[j] || *(s + i) == c[j])
 				*(s + i) = b[j];
+		i++;
+	}
 	return (s);
 }
