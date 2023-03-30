@@ -11,14 +11,16 @@ char *rot13(char *s)
 {
 	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	int i = 0, j;
+	int i, j;
 
-	while (*(s + i))
+	for (i = 0; *(s + i); i++)
 	{
 		for (j = 0; j < 52; j++)
 			if (*(s + i) == a[j])
+			{
 				*(s + i) = b[j];
-		i++;
+				break;
+			}
 	}
 	return (s);
 }
