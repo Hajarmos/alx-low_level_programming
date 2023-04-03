@@ -11,7 +11,7 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int n = 0;
+	unsigned int n = 1;
 	int i, j;
 
 	for (i = 0; s[i] != 32; i++)
