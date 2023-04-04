@@ -12,13 +12,17 @@
 
 void print_diagsums(int *a, int size)
 {
-	int i, j, res1 = 0, res2 = 0;
-
-	j = size - 1;
+	int i, res1 = 0, res2 = 0, p;
 
 	for (i = 0; i < size; i++)
-		res1 += a[i][i];
+	{
+		p = (i * size) + i;
+		res1 += *(a + p);
+	}
 	for (i = 0; i < size; i++)
-		res2 += a[i][j - i];
+	{
+		p = (i * size) + (size - 1 - i);
+		res2 += *(a + p);
+	}
 	printf("%d, %d", res1, res2);
 }
