@@ -18,17 +18,17 @@ int _strlen_recursion(char *s)
 /**
  * check - check palindrome
  * @s: string
- * @len: int
+ * @leng: int
  *
  * Return: int
  */
 
-int check(char *s, int len)
+int check(char *s, int leng)
 {
-	if (len == 0 || len == 1)
+	if (leng == 0 || leng == 1)
 		return (1);
-	if (*s == *(s + (len - 1))
-		return (check(s + 1, len - 2));
+	if (*s == *(s + (leng - 1)))
+		return (check((s + 1), (leng - 2)));
 	else
 		return (0);
 }
