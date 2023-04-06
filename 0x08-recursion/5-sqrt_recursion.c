@@ -10,12 +10,11 @@
 
 int check(int a, int b)
 {
-	if (a * a < b)
-		check(a + 1, b);
+	if (a * a > b)
+		return (-1);
 	else if (a * a == b)
 		return (a);
-	else
-		return (-1);
+	return (check(a + 1, b));
 }
 
 /**
