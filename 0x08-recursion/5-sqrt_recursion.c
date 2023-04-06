@@ -3,17 +3,17 @@
 /**
  * check - checks for the natural square root of a number
  * @a: the vertual natural square root of n
- * @n: number
+ * @b: number
  *
  * Return: the natural square root of a number
  */
 
-int check(int a, int n)
+int check(int a, int b)
 {
-	if (a * a < n)
-		check(a + 1, n);
-	else if (a * a == n)
-		return (n);
+	if (a * a < b)
+		check(a + 1, b);
+	else if (a * a == b)
+		return (a);
 	else
 		return (-1);
 }
@@ -27,5 +27,8 @@ int check(int a, int n)
 
 int _sqrt_recursion(int n)
 {
+	if (n == 0)
+		return (0);
+
 	return (check(1, n));
 }
