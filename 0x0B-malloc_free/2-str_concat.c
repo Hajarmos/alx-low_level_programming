@@ -8,7 +8,7 @@
  */
 char *checknull(char *s)
 {
-	int len __attribute__((unused)), i __attribute__((unused));
+	int len , i;
 	char *cp;
 
 	if (s == NULL)
@@ -23,7 +23,7 @@ char *checknull(char *s)
 	i = 0;
 	while (*(s + len))
 		len++;
-	cp = malloc(sizeof(char) * len);
+	cp = malloc(sizeof(char) * (len + 1));
 	if (cp == NULL)
 		return (NULL);
 	while (*(s + i))
@@ -31,6 +31,7 @@ char *checknull(char *s)
 		*(cp + i) = *(s + i);
 		i++;
 	}
+	*(cp + i) = '\0';
 	return (cp);
 }
 /**
@@ -61,23 +62,22 @@ char *str_concat(char *s1, char *s2)
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
 	if (s1 == NULL && s2 == NULL)
-		n = sizeof(char);
+		n = 1;
 	else if (s1 == NULL && s2 != NULL)
 		n = size(s2);
 	else if (s1 != NULL && s2 == NULL)
 		n = size(s1);
 	else
-
-		n = size(s1) + size(s2) - 10;
-	con = malloc(sizeof(char) * n);
+		n = size(s1) + size(s2);
+	con = malloc(sizeof(char) * (n + 1));
 	if (con == NULL)
 		return (NULL);
-	while (*(cps1 + k) && *(cps1 + k) != '\0')
+	while (*(cps1 + k))
 	{
 		*(con + k) = *(cps1 + k);
 		k++;
 	}
-	while (*(cps2 + l) != '\0')
+	while (*(cps2 + l))
 	{
 		*(con + k + l) = *(cps2 + l);
 		l++;
