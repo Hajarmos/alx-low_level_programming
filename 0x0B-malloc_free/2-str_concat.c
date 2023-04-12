@@ -66,7 +66,7 @@ char *str_concat(char *s1, char *s2)
 	else if (s1 != NULL && s2 == NULL)
 		n = size(s1);
 	else
-		n = size(s1) + size(s2) - 1;
+		n = size(s1) + size(s2) - 10;
 	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
