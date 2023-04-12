@@ -46,9 +46,9 @@ char *str_concat(char *s1, char *s2)
 
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
-	while (*(cps1 + i))
+	while (*(s1 + i))
 		i++;
-	while (*(cps2 + j))
+	while (*(s2 + j))
 		j++;
 	n = (i + j) - 1;
 	con = malloc(sizeof(char) * n);
