@@ -38,9 +38,9 @@ char *checknull(char *s)
  * @str: string
  * Return: int
  */
-long int size(char *str)
+int size(char *str)
 {
-	long int i;
+	int i;
 
 	i = 0;
 	while (*(str + i))
@@ -69,7 +69,7 @@ char *str_concat(char *s1, char *s2)
 	else
 
 		n = size(s1) + size(s2) + 1;
-	con = malloc(sizeof(char) * n);
+	con = malloc(sizeof(char long) * n);
 	if (con == NULL)
 		return (NULL);
 	while (*(cps1 + k) && *(cps1 + k) != '\0')
