@@ -64,7 +64,5 @@ char *str_concat(char *s1, char *s2)
 		l++;
 	}
 	*(con + k + l) = '\0';
-	free(cps1);
-	free(cps2);
 	return (con);
 }
