@@ -4,7 +4,7 @@
 /**
  * checknull - return empty string is NULLpassed
  * @s: null string
- * Return empty string
+ * Return: empty string
  */
 char *checknull(char *s)
 {
@@ -42,8 +42,7 @@ char *checknull(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	char *con, *cps1, *cps2;
-	int n;
-	unsigned int i = 0, j = 0, k = 0, l = 0;
+	int n, i = 0, j = 0, k = 0, l = 0;
 
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
@@ -51,7 +50,7 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	while (*(cps2 + j))
 		j++;
-	n = sizeof(char) * (i + j + 1);
+	n = sizeof(char) * (i + j - 1);
 	con = malloc(n);
 	if (con == NULL)
 		return (NULL);
