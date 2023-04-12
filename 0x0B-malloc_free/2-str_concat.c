@@ -34,6 +34,19 @@ char *checknull(char *s)
 	return (cp);
 }
 /**
+ * size - return size of string
+ * @str: string
+ * Return: int
+ */
+int size(char *str)
+{
+	int i = 0;
+
+	while (*(str + i))
+		i++;
+	return (i);
+}
+/**
  * str_concat - concatenates two strings
  * @s1: first string
  * @s2: second string
@@ -42,15 +55,18 @@ char *checknull(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	char *con, *cps1, *cps2;
-	unsigned int i = 0, j = 0, k = 0, l = 0, n;
+	unsigned int k = 0, l = 0, n;
 
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
-	while (*(s1 + i))
-		i++;
-	while (*(s2 + j))
-		j++;
-	n = (i + j) - 10;
+	if (s1 == NULL && s2 == NULL)
+		n = sizeof(char);
+	else if (s1 == NULL && s2 != NULL)
+		n = size(s2);
+	else if (s1 != NULL && s2 == NULL)
+		n = size(s1);
+	else
+		n = size(s1) + size(s2) - 1;
 	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
