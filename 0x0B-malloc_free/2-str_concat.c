@@ -40,8 +40,9 @@ char *checknull(char *s)
  */
 int size(char *str)
 {
-	int i = 0;
+	int i;
 
+	i = 0;
 	while (*(str + i))
 		i++;
 	return (i);
@@ -66,7 +67,8 @@ char *str_concat(char *s1, char *s2)
 	else if (s1 != NULL && s2 == NULL)
 		n = size(s1);
 	else
-		n = size(s1) + size(s2) - 10;
+
+		n = (size(s1) + size(s2)) / 2;
 	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);

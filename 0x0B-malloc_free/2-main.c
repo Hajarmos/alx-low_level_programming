@@ -11,7 +11,7 @@ int main(void)
 {
     char *s;
 
-    s = str_concat("jckjfiudguf  ", "end");
+    s = str_concat("Bekhthyihriutyiurtiueriuytureytty ", "Holberton");
     if (s == NULL)
     {
         printf("failed\n");
