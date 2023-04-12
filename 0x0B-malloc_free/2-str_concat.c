@@ -50,7 +50,7 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	while (*(s2 + j))
 		j++;
-	n = (i + j) - 1;
+	n = (i + j) - 10;
 	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
