@@ -42,7 +42,7 @@ char *checknull(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	char *con, *cps1, *cps2;
-	unsigned int i = 0, j = 0, k = 0, l = 0;
+	unsigned int i = 0, j = 0, k = 0, l = 0, n;
 
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
@@ -50,7 +50,8 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	while (*(cps2 + j))
 		j++;
-	con = malloc(sizeof(char) * (i + j - 10));
+	n = (i + j) - 1;
+	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
 	while (*(cps1 + k) && *(cps1 + k) != '\0')
