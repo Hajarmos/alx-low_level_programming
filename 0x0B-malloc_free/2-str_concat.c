@@ -8,7 +8,7 @@
  */
 char *checknull(char *s)
 {
-	int len __attribute__((unused)) , i __attribute__((unused));
+	int len __attribute__((unused)), i __attribute__((unused));
 	char *cp;
 
 	if (s == NULL)
@@ -23,7 +23,7 @@ char *checknull(char *s)
 	i = 0;
 	while (*(s + len))
 		len++;
-	cp = malloc(sizeof(char) * (len + 1));
+	cp = malloc(sizeof(char) * ++len);
 	if (cp == NULL)
 		return (NULL);
 	while (*(s + i))
