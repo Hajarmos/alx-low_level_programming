@@ -23,7 +23,7 @@ char *checknull(char *s)
 	i = 0;
 	while (*(s + len))
 		len++;
-	cp = malloc(sizeof(char) * (len + 1));
+	cp = malloc(sizeof(char) * (len +1));
 	if (cp == NULL)
 		return (NULL);
 	while (*(s + i))
