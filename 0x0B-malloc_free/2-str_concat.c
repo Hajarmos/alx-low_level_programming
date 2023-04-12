@@ -50,7 +50,7 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	while (*(cps2 + j))
 		j++;
-	con = malloc(sizeof(char) * (i + j - 1));
+	con = malloc(sizeof(char) * (i + j - 10));
 	if (con == NULL)
 		return (NULL);
 	while (*(cps1 + k) && *(cps1 + k) != '\0')
