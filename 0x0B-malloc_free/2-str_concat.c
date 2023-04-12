@@ -8,17 +8,19 @@
  */
 char *checknull(char *s)
 {
-	int len = 0, i = 0;
+	int len __attribute__((unused)) , i __attribute__((unused));
 	char *cp;
 
 	if (s == NULL)
 	{
-		cp = malloc(1);
+		cp = malloc(sizeof(char));
 		if (cp == NULL)
 			return (NULL);
 		*cp = '\0';
 		return (cp);
 	}
+	len = 0;
+	i = 0;
 	while (*(s + len))
 		len++;
 	cp = malloc(sizeof(char) * (len + 1));
@@ -53,16 +55,15 @@ char *str_concat(char *s1, char *s2)
 	con = malloc(n);
 	if (con == NULL)
 		return (NULL);
-	while (*(s1 + k) && *(s1 + k) != '\0')
+	while (*(cps1 + k) != '\0')
 	{
-		*(con + k) = *(s1 + k);
+		*(con + k) = *(cps1 + k);
 		k++;
 	}
-	while (*(s2 + l) != '\0')
+	while (*(cps2 + l))
 	{
-		*(con + k + l) = *(s2 + l);
+		*(con + k + l) = *(cps2 + l);
 		l++;
 	}
-	*(con + k + l) = '\0';
 	return (con);
 }
