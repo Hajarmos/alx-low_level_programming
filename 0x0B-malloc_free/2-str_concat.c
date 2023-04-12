@@ -8,9 +8,8 @@
  */
 char *checknull(char *s)
 {
-	int len, i;
+	int len __attribute__((unused)), i __attribute__((unused));
 	char *cp;
-
 	if (s == NULL)
 	{
 		cp = malloc(sizeof(char));
@@ -23,7 +22,7 @@ char *checknull(char *s)
 	i = 0;
 	while (*(s + len))
 		len++;
-	cp = malloc(sizeof(char) * (len + 1));
+	cp = malloc(sizeof(char) * len);
 	if (cp == NULL)
 		return (NULL);
 	while (*(s + i))
@@ -31,7 +30,6 @@ char *checknull(char *s)
 		*(cp + i) = *(s + i);
 		i++;
 	}
-	*(cp + i) = '\0';
 	return (cp);
 }
 /**
@@ -41,9 +39,7 @@ char *checknull(char *s)
  */
 int size(char *str)
 {
-	int i;
-
-	i = 0;
+	int i = 0;
 	while (*(str + i))
 		i++;
 	return (i);
@@ -58,26 +54,25 @@ char *str_concat(char *s1, char *s2)
 {
 	char *con, *cps1, *cps2;
 	unsigned int k = 0, l = 0, n;
-
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
 	if (s1 == NULL && s2 == NULL)
-		n = 1;
+		n = sizeof(char);
 	else if (s1 == NULL && s2 != NULL)
 		n = size(s2);
 	else if (s1 != NULL && s2 == NULL)
 		n = size(s1);
 	else
-		n = size(s1) + size(s2);
-	con = malloc(sizeof(char) * (n - 12));
+		n = size(s1) + size(s2) - 10;
+	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
-	while (*(cps1 + k))
+	while (*(cps1 + k) && *(cps1 + k) != '\0')
 	{
 		*(con + k) = *(cps1 + k);
 		k++;
 	}
-	while (*(cps2 + l))
+	while (*(cps2 + l) != '\0')
 	{
 		*(con + k + l) = *(cps2 + l);
 		l++;
