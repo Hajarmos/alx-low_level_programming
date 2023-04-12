@@ -14,6 +14,8 @@ char *_strdup(char *str)
 	int i = 0, len = 0, n;
 	char *strcp;
 
+	if (str == NULL)
+		return (NULL);
 	while (*(str + len))
 		len++;
 
@@ -21,7 +23,7 @@ char *_strdup(char *str)
 
 	strcp = malloc(n);
 
-	if ((strcp == NULL  && n > 0) || str == NULL)
+	if (strcp == NULL)
 		return (NULL);
 	while (*(str + i))
 	{
