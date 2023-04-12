@@ -16,14 +16,14 @@ char *checknull(char *s)
 		cp = malloc(sizeof(char));
 		if (cp == NULL)
 			return (NULL);
-		*cp = '\0';
+		*(cp + 0) = '\0';
 		return (cp);
 	}
 	len = 0;
 	i = 0;
 	while (*(s + len))
 		len++;
-	cp = malloc(sizeof(char) * ++len);
+	cp = malloc(sizeof(char) * (len + 1));
 	if (cp == NULL)
 		return (NULL);
 	while (*(s + i))
@@ -42,7 +42,7 @@ char *checknull(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	char *con, *cps1, *cps2;
-	int n, i = 0, j = 0, k = 0, l = 0;
+	unsigned int i = 0, j = 0, k = 0, l = 0;
 
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
@@ -50,19 +50,19 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	while (*(cps2 + j))
 		j++;
-	n = sizeof(char) * (i + j - 1);
-	con = malloc(n);
+	con = malloc(sizeof(char) * (i + j + 1));
 	if (con == NULL)
 		return (NULL);
-	while (*(cps1 + k) != '\0')
+	while (*(cps1 + k) && *(cps1 + k) != '\0')
 	{
 		*(con + k) = *(cps1 + k);
 		k++;
 	}
-	while (*(cps2 + l))
+	while (*(cps2 + l) != '\0')
 	{
 		*(con + k + l) = *(cps2 + l);
 		l++;
 	}
+	*(con + k + l) = '\0';
 	return (con);
 }
