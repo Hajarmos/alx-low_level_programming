@@ -38,9 +38,9 @@ char *checknull(char *s)
  * @str: string
  * Return: int
  */
-int size(char *str)
+long int size(char *str)
 {
-	int i;
+	long int i;
 
 	i = 0;
 	while (*(str + i))
@@ -68,7 +68,7 @@ char *str_concat(char *s1, char *s2)
 		n = size(s1);
 	else
 
-		n = (size(s1) + size(s2) + 1) / 4;
+		n = size(s1) + size(s2) + 1;
 	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
