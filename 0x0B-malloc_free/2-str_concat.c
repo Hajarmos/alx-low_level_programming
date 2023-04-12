@@ -8,7 +8,7 @@
  */
 char *checknull(char *s)
 {
-	int len , i;
+	int len, i;
 	char *cp;
 
 	if (s == NULL)
@@ -69,7 +69,7 @@ char *str_concat(char *s1, char *s2)
 		n = size(s1);
 	else
 		n = size(s1) + size(s2);
-	con = malloc(sizeof(char) * (n + 1));
+	con = malloc(sizeof(char) * (n - 10));
 	if (con == NULL)
 		return (NULL);
 	while (*(cps1 + k))
