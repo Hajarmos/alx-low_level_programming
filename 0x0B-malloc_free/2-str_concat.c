@@ -66,7 +66,7 @@ char *str_concat(char *s1, char *s2)
 	else if (s1 != NULL && s2 == NULL)
 		n = size(s1);
 	else
-		n = size(s1) + size(s2) - 10;
+		n = (size(s1) - 1) + size(s2) ;
 	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
@@ -75,11 +75,13 @@ char *str_concat(char *s1, char *s2)
 		*(con + k) = *(cps1 + k);
 		k++;
 	}
+	free(cps1);
 	while (*(cps2 + l) != '\0')
 	{
 		*(con + k + l) = *(cps2 + l);
 		l++;
 	}
+	free(cps2);
 	*(con + k + l) = '\0';
 	return (con);
 }
