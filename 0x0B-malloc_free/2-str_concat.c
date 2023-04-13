@@ -60,14 +60,14 @@ char *str_concat(char *s1, char *s2)
 	cps1 = checknull(s1);
 	cps2 = checknull(s2);
 	if (s1 == NULL && s2 == NULL)
-		n = sizeof(*con);
+		n = sizeof(char);
 	else if (s1 == NULL && s2 != NULL)
 		n = size(s2);
 	else if (s1 != NULL && s2 == NULL)
 		n = size(s1);
 	else
-		n = size(s1) + size(s2);
-	con = malloc(sizeof(*con) * n - 10);
+		n = size(s1) + size(s2) - 10;
+	con = malloc(sizeof(char) * n);
 	if (con == NULL)
 		return (NULL);
 	while (*(cps1 + k) && *(cps1 + k) != '\0')
