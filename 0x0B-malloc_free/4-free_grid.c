@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "bootcamp.h"
+#include "main.h"
 /**
  * free_grid - frees a 2 dimensional grid previously created
  * @grid: grid
