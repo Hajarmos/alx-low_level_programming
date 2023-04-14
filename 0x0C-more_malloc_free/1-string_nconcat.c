@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * string_nconcat - concatenates two strings
  * @s1: first string
@@ -9,7 +8,6 @@
  * @n: first n bytes in s2
  * Return: pointer
  */
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *con;
