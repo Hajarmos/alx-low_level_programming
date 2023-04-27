@@ -1,5 +1,5 @@
-#ifndef _LIST_H_
-#ifdef _LIST_H_
+#ifndef _LISTS_H_
+#define _LISTS_H_
 
 #include <stdlib.h>
 #include <string.h>
@@ -17,7 +17,7 @@ typedef struct list_s
 {
 	char *str;
 	unsigned int len;
-	struct list_s next;
+	struct list_s *next;
 }list_t;
 
 size_t print_list(const list_t *h);
