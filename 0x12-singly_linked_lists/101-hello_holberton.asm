@@ -1,10 +1,22 @@
-          global    main
-          extern    puts
+section .text
+    default rel
+    extern printf
+    global main
+main:
+    ; Create a stack-frame, re-aligning the stack to 16-byte alignment before calls
+    push rbp
 
-          section   .text
-main:                                       ; This is called by the C library startup code
-          mov       rdi, message            ; First integer (or pointer) argument in rdi
-          call      puts                    ; puts(message)
-          ret                               ; Return from main back into C library wrapper
-message:
-          db        "Hola, Holberton", 0        ; Note strings must be terminated with 0 in C
+    mov	rdi, fmt
+    mov	rsi, message
+    mov	rax, 0
+
+    ; Call printf
+    call printf wrt ..plt
+    
+    pop	rbp		; Pop stack
+
+    mov	rax,0	; Exit code 0
+    ret			; Return
+section .data
+    message:  db        "Hello, Holberton", 14, 0
+    fmt:    db "%s", 14, 0
