@@ -1,23 +1,20 @@
-;main.asm
-GLOBAL main
-EXTERN printf
+extern printf
 
-section .rodata:
-fmt db "Number of parameters: %d \n", 0 
+section .data
+msg: db "Hello, Holberton", 0
+fmt: db "%s", 10, 0
 
-section .text:
+section .text
 
+global main
 main:
+push	rbp
+mov	rdi, fmt
+mov	rsi, msg
+mov	rax, 0
+call	printf
 
-    push ebp
-    mov ebp, esp    ;stackframe
+pop rbp
 
-    push dword[ebp+8]       ;prepara los parametros para printf
-    push fmt
-    call printf
-    add esp, 2*4
-
-    mov eax, 0      ;return value
-
-    leave           ;desarmado del stack frame
-    ret
+mov	rax, 0
+ret
