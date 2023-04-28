@@ -12,7 +12,8 @@ size_t list_len(const list_t *h)
 	unsigned int i = 0;
 	const list_t *temp = h;
 
-	for (; temp; temp = temp->next, i++);
+	for (; temp; temp = temp->next, i++)
+		;
 	temp = NULL;
 	return (i);
 }
