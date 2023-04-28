@@ -1,22 +1,23 @@
-section .text
-    default rel
-    extern printf
-    global main
+;main.asm
+GLOBAL main
+EXTERN printf
+
+section .rodata:
+fmt db "Number of parameters: %d \n", 0 
+
+section .text:
+
 main:
-    ; Create a stack-frame, re-aligning the stack to 16-byte alignment before calls
-    push rbp
 
-    mov	rdi, fmt
-    mov	rsi, message
-    mov	rax, 0
+    push ebp
+    mov ebp, esp    ;stackframe
 
-    ; Call printf
-    call printf wrt ..plt
+    push dword[ebp+8]       ;prepara los parametros para printf
+    push fmt
+    call printf
+    add esp, 2*4
 
-    pop	rbp		; Pop stack
+    mov eax, 0      ;return value
 
-    mov	rax,0	; Exit code 0
-    ret			; Return
-section .data
-    message:  db        "Hello, Holberton", 14, 0
-    fmt:    db "%s", 14, 0
+    leave           ;desarmado del stack frame
+    ret
