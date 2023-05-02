@@ -9,32 +9,25 @@
 size_t free_listint_safe(listint_t **h)
 {
 	listint_t *temp, *check, *head;
-	unsigned int i = 0, j;
+	unsigned int i = 0, j, end_loop = 0;
 
-	if (!*h)
-		exit(98);
 	head = *h;
-	while (*h)
+	while (*h && !end_loop)
 	{
 		temp = *h;
 		i++;
-		*h = temp->next;
+		*h = (*h)->next;
 		free(temp);
 		check = head;
 		j = 0;
 		while (j < i)
 		{
 			if (*h == check)
-			{
-				*h = NULL;
-				h = NULL;
-				return (i);
-			}
+				end_loop = 1;
 			check = check->next;
 			j++;
 		}
 	}
 	*h = NULL;
-	h = NULL;
 	return (i);
 }
