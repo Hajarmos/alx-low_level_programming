@@ -11,11 +11,13 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *temp, *check, *head;
 	unsigned int i = 0, j;
 
+	if (!*h)
+		exit(98);
 	head = *h;
 	while (*h)
 	{
-		i++;
 		temp = *h;
+		i++;
 		*h = temp->next;
 		free(temp);
 		check = head;
