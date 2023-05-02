@@ -23,8 +23,9 @@ size_t free_listint_safe(listint_t **h)
 		j = 0;
 		while (j < i)
 		{
-			if (temp == check)
+			if (*h == check)
 			{
+				free(temp);
 				*h = NULL;
 				return (i);
 			}
