@@ -23,7 +23,7 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			if (temp == check)
 			{
-				printf("->[%p] %d\n", (void *)temp, temp->n);
+				printf("-> [%p] %d\n", (void *)temp, temp->n);
 				return (i);
 			}
 			check = check->next;
