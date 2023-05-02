@@ -27,6 +27,7 @@ size_t free_listint_safe(listint_t **h)
 			if (*h == check)
 			{
 				*h = NULL;
+				h = NULL;
 				return (i);
 			}
 			check = check->next;
@@ -34,5 +35,6 @@ size_t free_listint_safe(listint_t **h)
 		}
 	}
 	*h = NULL;
+	h = NULL;
 	return (i);
 }
