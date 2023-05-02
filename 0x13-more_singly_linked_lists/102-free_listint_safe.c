@@ -12,20 +12,18 @@ size_t free_listint_safe(listint_t **h)
 	unsigned int i = 0, j;
 
 	head = *h;
-	temp = *h;
-	while (temp)
+	while (*h)
 	{
 		i++;
+		temp = *h;
 		*h = temp->next;
 		free(temp);
-		temp = *h;
 		check = head;
 		j = 0;
 		while (j < i)
 		{
 			if (*h == check)
 			{
-				free(temp);
 				*h = NULL;
 				return (i);
 			}
