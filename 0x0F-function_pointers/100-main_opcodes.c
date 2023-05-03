@@ -28,6 +28,6 @@ int main(int argc, char **argv)
 			printf("%02x\n", ((unsigned char *)main)[i]);
 			return (0);
 		}
-		printf("%02x ",((unsigned char *)main)[i]);
+		printf("%02x ", ((unsigned char *)main)[i]);
 	}
 }
