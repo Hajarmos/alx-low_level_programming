@@ -15,12 +15,12 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
+	n_byte = atoi(argv[1]);
 	if (n_byte < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	n_byte = atoi(argv[1]);
 	for (i = 0; i < n_byte; i++)
 	{
 		if (i == (n_byte - 1))
