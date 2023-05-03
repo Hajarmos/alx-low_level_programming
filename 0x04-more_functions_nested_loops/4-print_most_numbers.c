@@ -7,13 +7,13 @@
  */
 void print_most_numbers(void)
 {
-	char c;
+	char c = 48;
 
-	for (c = 48; c < 58; c++)
+	while (c < 58)
 	{
-		if (c == '2' || c == '4')
-			_putchar(++c);
-		_putchar(c);
+		if (c != 50 || c != 52)
+			_putchar(c);
+		c++;
 	}
 	_putchar('\n');
 }
