@@ -22,7 +22,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!filename || op == -1)
 		return (0);
 	ch = malloc(sizeof(char) * letters);
-	if(!ch)
+	if (!ch)
 		return (0);
 	letterrd = read(op, ch, letters);
 	if (letterrd == -1)
@@ -36,4 +36,4 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	close(op);
 	return (letterwr);
-}	
+}
