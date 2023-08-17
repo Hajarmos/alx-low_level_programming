@@ -13,11 +13,11 @@ size_t print_dlistint(const dlistint_t *h)
 	unsigned int cont = 0;
 
 	if (!h)
-		return cont;
+		return (cont);
 	if (!h->prev && !h->next)
 	{
 		printf("%d\n", h->n);
-		return 1;
+		return (1);
 	}
 	while (h->prev)
 		h = h->prev;
